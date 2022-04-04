@@ -11,19 +11,18 @@ public class App {
 		
 		LivroServiceImpl livroService = LivroServiceImpl.getInstance();
 		
-		Livro livro = new Livro("O vento nevou", "Clarice Lispector", "49827983217-8", LocalDate.of(2004, 5, 24));
-		livroService.cadastrar(new Livro("Xablau", "Lora", "4024124-2", LocalDate.of(2014, 1, 14)));
-		livroService.cadastrar(new Livro("Anjo caido", "Bruno", "50985843-2", LocalDate.of(2020, 12, 30)));
+		Livro livro = new Livro("Vento nevou", "Clarice Lispector", "123456789-3", LocalDate.of(2003, 10, 23));
+		Livro livro2 = new Livro("Jogos Vorazes", "Lora", "32197422-2", LocalDate.of(2014, 2, 13));
+		Livro livro3 = new Livro("As aventuras do menega", "Bruno","4982783472-2", LocalDate.of(2020, 12, 10));
 		livroService.cadastrar(livro);
+		livroService.cadastrar(livro2);
+		livroService.cadastrar(livro3);
 		
-		livroService.listar();
-		
-		Livro livro2 = livroService.obter(3L);
-		System.out.println(livro2);
+		livroService.listar().forEach(System.out::println);
 		
 		livroService.remover(3L);
 		
-		livroService.atualizar(new Livro("Anjo caido", "Bruno", "50985843-2", LocalDate.of(2022, 10, 03)));
+		livroService.atualizar(new Livro("As aventuras do menega", "Bruno", "4982783472-2", LocalDate.of(2022, 10, 03)));
 	}
 
 }

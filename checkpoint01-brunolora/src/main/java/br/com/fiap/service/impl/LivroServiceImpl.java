@@ -35,17 +35,6 @@ public class LivroServiceImpl extends GenericService<Livro, Long> {
 			closeEntityManager();
 		}
 	}
-	
-	public void inserirComEndereco(Livro livro) {
-		try {
-			livroDAO.salvar(livro, getEntityManager());
-		} catch (Exception e) {
-			e.printStackTrace();
-			getEntityManager().getTransaction().rollback();
-		} finally {
-			closeEntityManager();
-		}
-	}
 
 	@Override
 	public void atualizar(Livro instance) {
